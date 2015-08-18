@@ -1,5 +1,5 @@
 #!/bin/sh
-proj_name=data-access
+proj_name=daf
 output_dir=output
 
 output_file_name=${proj_name}.tar.gz
