@@ -86,8 +86,8 @@ if __name__ == '__main__':
     c = DaConfig()
     print c.get_conf('log')
     print c.get_db_conf('task')
-    print c.get_db_conf('src_data')
-    print c.get_db_conf('poichk_data')
+    print c.get_db_conf('s_data')
+    print c.get_db_conf('p_data')
     print c.home_path
     print c.conf_path
     print c.log_path
