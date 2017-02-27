@@ -18,13 +18,13 @@ class DataImport:
     SAVE_LIMIT = 200
     SUFFIX_LIST = [
         '.data', '.db_task', '.fail_data',
-        '.field_diff', '.poichk_data',
+        '.field_diff', '.p_data',
         '.ver_data', '.src_data', '.card_data',
         '.res',
     ]
     INT_FILED_LIST = [
-        'ap_id', 'src_id', 'status', 'errno',
-        'cardid', 'ts', 'ct', 'ut', 'task_id',
+        'a_id', 's_id', 'status', 'errno',
+        'cid', 'ts', 'ct', 'ut', 'task_id',
         'check_status', 'check_info'
     ];
 
