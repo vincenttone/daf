@@ -4,9 +4,6 @@ require_once(
     dirname(dirname(__FILE__))
     .'/init_env.php'
 );
-require_once(
-    Da\Sys_App::lib_path("CNsHead.class.php")
-);
 $opt = getopt('h::p::', ['2json', '2sp']);
 $host = isset($opt['h']) ? $opt['h'] : '0.0.0.0';
 $port = isset($opt['p']) ? $opt['p'] : '8765';
@@ -23,9 +20,7 @@ if (!$socket) {
     while (
         $conn = stream_socket_accept($socket, 86400)
     ) {
-        $ns = new NsHead();
-        $data = $ns->nshead_read($conn);
-        $result = mc_pack_pack2array($data['buf']);
+        $result = fgets($conn);
         isset($opt['2json'])
             ? print(json_encode($result))
             : (
@@ -35,8 +30,6 @@ if (!$socket) {
             );
         echo PHP_EOL;
         $data = ['errno'=>0, 'data'=> 'ok'];
-        $body = mc_pack_array2pack($data);
-        $hdr  = array('body_len' => strlen($body));
-        $ns->nshead_write($conn, $hdr, $body);
+        fwrite($conn, json_encode($data));
     }
 }
