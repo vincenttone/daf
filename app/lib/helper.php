@@ -486,7 +486,7 @@ class Lib_Helper
     {
         $arrMailTo = explode(';', $receiver);
         foreach ($arrMailTo as &$val) {
-            $val .= '@baidu.com';
+            $val .= '@xxx.com';
         }
         $receiver = implode(',', $arrMailTo);
         (''==$title) && ($title = $text);
